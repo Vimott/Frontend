@@ -1,0 +1,261 @@
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      min-height: 100vh;
+    }
+
+    .header  { grid-area: header; }
+    .sidebar { grid-area: sidebar; }
+    .main    { grid-area: main; }
+    .footer  { grid-area: footer; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background-color: lightblue;
+      color: black;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .user {
+      background-color: steelblue;
+      color: white;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .sidebar {
+      background-color: #eeeeee;
+      padding: 16px;
+      border-right: 1px solid gray;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px;
+      margin-bottom: 6px;
+      color: blue;
+    }
+
+    .sidebar a:hover {
+      background-color: lightyellow;
+    }
+
+    .sidebar a.active {
+      background-color: steelblue;
+      color: white;
+    }
+
+    .main {
+      padding: 24px;
+    }
+
+    .main h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid gray;
+    }
+
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid gray;
+    }
+
+    .chart-panel   { flex: 2 1 320px; }
+    .courses-panel { flex: 1 1 280px; }
+    .table-panel   { flex: 2 1 320px; }
+    .activity-panel { flex: 1 1 280px; }
+
+    .chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      height: 200px;
+      border-bottom: 1px solid black;
+    }
+
+    .bar-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+    }
+
+    .bar {
+      width: 100%;
+      background-color: steelblue;
+    }
+
+    .bar-value {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .days {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      font-size: 13px;
+      color: #666666;
+    }
+
+    .days span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .course {
+      margin-bottom: 16px;
+    }
+
+    .course-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .course .progress {
+      height: 10px;
+      background-color: #eeeeee;
+      border: 1px solid gray;
+    }
+
+    .course .progress div {
+      height: 100%;
+      background-color: lightgreen;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    th {
+      font-size: 13px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 12px;
+      border: 1px solid gray;
+    }
+
+    .activity-panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .activity-panel li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eeeeee;
+      font-size: 14px;
+    }
+
+    .activity-panel li:last-child {
+      border-bottom: none;
+    }
+
+    .time {
+      display: block;
+      font-size: 12px;
+      color: gray;
+    }
+
+    .footer {
+      padding: 16px;
+      text-align: center;
+      background-color: #eeeeee;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+      }
+
+      .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        border-right: none;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .sidebar a {
+        margin-bottom: 0;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
